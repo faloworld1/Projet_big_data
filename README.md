@@ -51,7 +51,7 @@ Ce dépôt regroupe l'ensemble des éléments d'un projet complet de traitement 
 
 
 # 1. Cloner le dépôt
-git clone https://github.com/faloworld1/Traitement-de-donn-es-en-temps-r-el-avec-spark
+git clone https://github.com/faloworld1/Projet_big_data
 cd votre-depot
 
 # 2. Installer les dépendances Python
