@@ -1,8 +1,10 @@
-# Projet de Traitement de Données en Continu
+# Projet de Traitement de Données massives en temps reel 
 
-Ce dépôt regroupe l'ensemble des éléments d'un projet complet de traitement de données en continu qui combine plusieurs technologies (Spark, Kafka et Python) pour :
+# Partie 1: Traitement en local
 
-- **Générer des données aléatoires**
+Ce dépôt regroupe l'ensemble des éléments d'un projet complet de traitement de données en continu qui combine plusieurs technologies (Spark, et Python) pour :
+
+- **Scrapper des données sur le site **
 - **Envoyer ces données dans Kafka**
 - **Traiter ces données en streaming avec Spark** (transformations et écriture en fichiers CSV)
 - **Fusionner les fichiers CSV générés en un fichier unique**
@@ -91,3 +93,48 @@ python merge.py
 # - Gestion des Fichiers Traités :
    Le script de fusion utilise un fichier processed_files.txt pour enregistrer les fichiers déjà traités et éviter leur re-traitement.
   Pour reprocesser des données, supprimez ou modifiez ce fichier.
+
+---
+
+# Partie 2: UTILISATION DU CLOUD: CAS DE AWS
+# README - Projet de Traitement des Données Cryptographiques
+
+## Description
+Ce projet vise à récupérer, traiter et stocker des données de marché sur les cryptomonnaies en utilisant l'API CoinGecko. Il repose sur AWS Lambda, AWS Glue et Apache Spark pour automatiser l'extraction, la transformation et le stockage des données sur AWS S3.
+
+## Technologies utilisées
+- **AWS Lambda** : Récupération des données via l'API CoinGecko et stockage sur S3.
+- **Amazon EventBridge**: execution automatique du scraping
+- **AWS Glue & Apache Spark** : Transformation et nettoyage des données en streaming.
+- **AWS S3** : Stockage des données brutes et transformées.
+- **Python** : Développement des scripts de traitement des données.
+
+
+## Structure du projet
+- `lambda_function.py` : Script Lambda récupérant les données et les sauvegardant sur S3.
+- `Processing_crypto_datas_v2.ipynb` : Notebook Apache Spark pour le traitement des données en streaming.
+- `s3://raw-datas-projet/finance/` : Emplacement des données brutes sur S3.
+- `s3://raw-datas-projet/output/` : Emplacement des données transformées sur S3.
+
+## Installation et Exécution
+### Prérequis
+- Un compte AWS avec accès à S3, Lambda et Glue.
+- Python 3.x installé avec les bibliothèques requises (`boto3`, `requests`, `pyspark`).
+
+### Étapes
+1. **Déployer la fonction AWS Lambda**
+   - Modifier `lambda_function.py` avec votre région et bucket S3.
+   - Déployer la fonction sur AWS Lambda avec les permissions S3.
+
+2. **Exécuter le traitement Spark**
+   - Lancer le notebook `Processing_crypto_datas_v2.ipynb`.
+   - Vérifier les données traitées dans `s3://raw-datas-projet/output/`.
+---
+
+## Auteurs
+- Ange DASSI NGUEGANG: ange.dassi.06@gmail.com
+- IBRAHIMA FA LO: Loibrahimafa@gmail.com
+- SAFIETOU DEME: Sofiedme@yahoo.com
+
+
+
